@@ -1,9 +1,9 @@
 import React from 'react';
 
-const List_header = () => {
+const List_header = (props) => {
   return (
     <form className='app-list-form align-middle p-1 position-relative'>
-      <input className='app-list-input form-control form-control-sm' placeholder='Tareas importantes' type='text' title='Editar el título de la lista' />
+      <input className='app-list-input form-control form-control-sm' placeholder='Tareas importantes' type='text' defaultValue={props.defValue} title='Editar el título de la lista' />
       <div className='app-list-options'>
         <span className='pl-2 pr-2 text-white-50 fas fa-ellipsis-v'></span>
 
