@@ -1,18 +1,17 @@
 import React from 'react';
 
-const Card = () => {
+const Card = (props) => {
+  let tagsHtmlCode = props.tags.map((item, index) => (
+    <span key={index} className='badge badge-secondary bg-success'>
+      {item}
+    </span>
+  ));
   return (
     <article className='js-card app-card m-1 mb-2 p-2 bg-white rounded-sm app-cursor-pointer shadow-sm' title='Abrir la tarjeta'>
+      <div>{tagsHtmlCode}</div>
       <div>
-        <span className='badge badge-secondary bg-success'>JS</span>
-        <span className='badge badge-secondary bg-success'>Css</span>
-        <span className='badge badge-secondary bg-success'>Html</span>
+        <h3 className='h6'>{props.title}</h3>
       </div>
-
-      <div>
-        <h3 className='h6'>Título</h3>
-      </div>
-
       <div className='text-black-50'>
         <small className='pr-2 fas fa-align-left'></small>
         <small className='far fa-check-square'></small>

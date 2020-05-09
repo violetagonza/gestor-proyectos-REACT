@@ -10,10 +10,10 @@ function App() {
   const [data, setData] = useState([]);
   useEffect(() => {
     setData(board.board.list);
+    console.log(data);
   });
-  console.log(data);
 
-  const listHtmlCode = data.map((item, index) => <List key={index} defValue={item.title} />);
+  const listHtmlCode = data.map((item, index) => <List key={index} defValue={item.title} cards={item.cards} />);
   return (
     <>
       <div className='app'>
