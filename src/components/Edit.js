@@ -1,7 +1,7 @@
 import React from 'react';
 const Edit = () => {
   return (
-    <div className='js-edit js-edit-close app-edit modal d-none' tabindex='-1'>
+    <div className='js-edit js-edit-close app-edit modal d-none' tabIndex='-1'>
       <section className='js-edit-modal modal-dialog modal-dialog-centered modal-lg'>
         <div className='modal-content bg-light shadow border-0'>
           <form>
@@ -9,7 +9,7 @@ const Edit = () => {
               <h5 className='modal-title d-flex w-100'>
                 <span className='fas fa-columns mt-3 mr-2 text-muted'></span>
                 <div className='w-100'>
-                  <input className='app-edit-title form-control mb-0 border-0' placeholder='Filtrar tarjetas' type='text' value='Unificar funcionalidad' />
+                  <input className='app-edit-title form-control mb-0 border-0' placeholder='Filtrar tarjetas' type='text' />
                   <small className='app-edit-subtitle d-block mt-0 text-muted'>
                     en la lista <strong>Por hacer</strong>
                   </small>
@@ -30,7 +30,7 @@ const Edit = () => {
                       </div>
                       <div className='col-11 pl-0 pr-0'>
                         <h6 className='h6'>Descripción</h6>
-                        <textarea className='app-edit-textarea'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</textarea>
+                        <textarea className='app-edit-textarea' defaultValue={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'}></textarea>
                       </div>
                     </div>
                   </div>
@@ -43,35 +43,36 @@ const Edit = () => {
                       <div className='col-11 pl-0 pr-0'>
                         <h6 className='h6 mb-3'>Subtareas: completadas 3 de 5</h6>
                         <div className='app-edit-progress progress mb-3'>
-                          <div className='progress-bar' style='width: 60%;'></div>
+                          <div className='progress-bar'></div>
+                          {/* style={{'width: 60%;'}} */}
                         </div>
                         <div className='custom-control custom-checkbox mb-2'>
-                          <input className='custom-control-input' type='checkbox' checked id='subtask-1' />
-                          <label className='custom-control-label' for='subtask-1'>
+                          <input className='custom-control-input' type='checkbox' id='subtask-1' />
+                          <label className='custom-control-label' htmlFor='subtask-1'>
                             Unificar los eventos
                           </label>
                         </div>
                         <div className='custom-control custom-checkbox mb-2'>
-                          <input className='custom-control-input' type='checkbox' checked id='subtask-2' />
-                          <label className='custom-control-label' for='subtask-2'>
+                          <input className='custom-control-input' type='checkbox' id='subtask-2' />
+                          <label className='custom-control-label' htmlFor='subtask-2'>
                             Unificar las clases de la cabecera
                           </label>
                         </div>
                         <div className='custom-control custom-checkbox mb-2'>
                           <input className='custom-control-input' type='checkbox' id='subtask-3' />
-                          <label className='custom-control-label' for='subtask-3'>
+                          <label className='custom-control-label' htmlFor='subtask-3'>
                             Unificar las clases de las tarjetas
                           </label>
                         </div>
                         <div className='custom-control custom-checkbox mb-2'>
-                          <input className='custom-control-input' type='checkbox' checked id='subtask-4' />
-                          <label className='custom-control-label' for='subtask-4'>
+                          <input className='custom-control-input' type='checkbox' id='subtask-4' />
+                          <label className='custom-control-label' htmlFor='subtask-4'>
                             Unificar las funciones de datos
                           </label>
                         </div>
                         <div className='custom-control custom-checkbox mb-2'>
                           <input className='custom-control-input' type='checkbox' id='subtask-5' />
-                          <label className='custom-control-label' for='subtask-5'>
+                          <label className='custom-control-label' htmlFor='subtask-5'>
                             Unificar las estilos
                           </label>
                         </div>
