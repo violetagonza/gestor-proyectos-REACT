@@ -2,15 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Edit = (props) => {
-  console.log(props.info.tags);
-
   const handleCardTitle = (ev) => {
+    console.log(ev.currentTarget.value);
+  };
+  const handleCardText = (ev) => {
     console.log(ev.currentTarget.value);
   };
   let tagsHtmlCode;
   if (props.info.tags !== undefined) {
     tagsHtmlCode = props.info.tags.map((item, index) => {
-      console.log(item);
       return (
         <span key={index} className='badge badge-secondary bg-success'>
           {item}
@@ -27,7 +27,7 @@ const Edit = (props) => {
               <h5 className='modal-title d-flex w-100'>
                 <span className='fas fa-columns mt-3 mr-2 text-muted'></span>
                 <div className='w-100'>
-                  <input onChange={handleCardTitle} className='app-edit-title form-control mb-0 border-0' value={props.info.title} placeholder='Filtrar tarjetas' type='text' />
+                  <input onChange={handleCardTitle} className='app-edit-title form-control mb-0 border-0' defaultValue={props.info.title} placeholder='Filtrar tarjetas' type='text' />
                   <small className='app-edit-subtitle d-block mt-0 text-muted'>
                     en la lista <strong>Por hacer</strong>
                   </small>
@@ -50,7 +50,7 @@ const Edit = (props) => {
                       </div>
                       <div className='col-11 pl-0 pr-0'>
                         <h6 className='h6'>Descripción</h6>
-                        <textarea className='app-edit-textarea' defaultValue={props.info.description}></textarea>
+                        <textarea onChange={handleCardText} className='app-edit-textarea' defaultValue={props.info.description}></textarea>
                       </div>
                     </div>
                   </div>

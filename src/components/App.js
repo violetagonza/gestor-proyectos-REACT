@@ -11,12 +11,10 @@ function App() {
   const [data, setData] = useState([]);
   useEffect(() => {
     setData(board.board.list);
-  });
+  }, []);
 
   const handleEdit = (props) => {
     const clickedId = props.match.params.id;
-    const cards = data.map((card) => card.cards);
-    console.log(cards);
     let info = {};
     const foundCard = data
       .map((item) => item.cards)
@@ -45,6 +43,7 @@ function App() {
       </div>
       <Switch>
         <Route path='/task/:id' render={handleEdit} />
+        <Route path='/menu' component={Menu} />
       </Switch>
     </>
   );

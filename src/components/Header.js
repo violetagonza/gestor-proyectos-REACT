@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <header className='app-header bg-primary mb-3 d-flex justify-content-between align-items-center shadow'>
@@ -13,9 +13,11 @@ const Header = () => {
           </div>
           <input type='text' className='app-header-search form-control border-left-0' title='Filtrar las tareas' />
         </div>
-        <button type='button' className='js-menu-btn btn btn-primary btn-sm text-white-50' title='Abrir el menú'>
-          <span className='fas fa-columns'></span>
-        </button>
+        <Link to='/menu'>
+          <button type='button' className='js-menu-btn btn btn-primary btn-sm text-white-50' title='Abrir el menú'>
+            <span className='fas fa-columns'></span>
+          </button>
+        </Link>
       </form>
     </header>
   );
