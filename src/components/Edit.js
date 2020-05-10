@@ -1,7 +1,25 @@
 import React from 'react';
-const Edit = () => {
+import { Link } from 'react-router-dom';
+
+const Edit = (props) => {
+  console.log(props.info.tags);
+
+  const handleCardTitle = (ev) => {
+    console.log(ev.currentTarget.value);
+  };
+  let tagsHtmlCode;
+  if (props.info.tags !== undefined) {
+    tagsHtmlCode = props.info.tags.map((item, index) => {
+      console.log(item);
+      return (
+        <span key={index} className='badge badge-secondary bg-success'>
+          {item}
+        </span>
+      );
+    });
+  }
   return (
-    <div className='js-edit js-edit-close app-edit modal d-none' tabIndex='-1'>
+    <div className='js-edit js-edit-close app-edit modal show' tabIndex='-1'>
       <section className='js-edit-modal modal-dialog modal-dialog-centered modal-lg'>
         <div className='modal-content bg-light shadow border-0'>
           <form>
@@ -9,15 +27,17 @@ const Edit = () => {
               <h5 className='modal-title d-flex w-100'>
                 <span className='fas fa-columns mt-3 mr-2 text-muted'></span>
                 <div className='w-100'>
-                  <input className='app-edit-title form-control mb-0 border-0' placeholder='Filtrar tarjetas' type='text' />
+                  <input onChange={handleCardTitle} className='app-edit-title form-control mb-0 border-0' value={props.info.title} placeholder='Filtrar tarjetas' type='text' />
                   <small className='app-edit-subtitle d-block mt-0 text-muted'>
                     en la lista <strong>Por hacer</strong>
                   </small>
                 </div>
               </h5>
-              <button type='button' className='js-edit-close close' data-dismiss='modal'>
-                <span>&times;</span>
-              </button>
+              <Link to='/'>
+                <button type='button' className='js-edit-close close' data-dismiss='modal'>
+                  <span>&times;</span>
+                </button>
+              </Link>
             </div>
 
             <div className='modal-body'>
@@ -30,7 +50,7 @@ const Edit = () => {
                       </div>
                       <div className='col-11 pl-0 pr-0'>
                         <h6 className='h6'>Descripción</h6>
-                        <textarea className='app-edit-textarea' defaultValue={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'}></textarea>
+                        <textarea className='app-edit-textarea' defaultValue={props.info.description}></textarea>
                       </div>
                     </div>
                   </div>
@@ -83,11 +103,7 @@ const Edit = () => {
 
                 <div className='col-xl-3 col-4'>
                   <h6 className='h6 text-uppercase'>Etiquetas</h6>
-                  <div className='mb-4'>
-                    <span className='badge badge-secondary bg-success'>JS</span>
-                    <span className='badge badge-secondary bg-success'>Css</span>
-                    <span className='badge badge-secondary bg-success'>Html</span>
-                  </div>
+                  <div className='mb-4'>{tagsHtmlCode}</div>
                   <h6 className='h6 text-uppercase'>Acciones</h6>
                   <button type='button' className='btn btn-primary btn-sm mb-2 w-100 text-left'>
                     <span className='fas fa-copy mr-2'></span>

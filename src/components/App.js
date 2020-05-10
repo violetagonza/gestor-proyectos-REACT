@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import List from './List';
 import Menu from './Menu';
@@ -10,8 +11,27 @@ function App() {
   const [data, setData] = useState([]);
   useEffect(() => {
     setData(board.board.list);
-    console.log(data);
   });
+
+  const handleEdit = (props) => {
+    const clickedId = props.match.params.id;
+    const cards = data.map((card) => card.cards);
+    console.log(cards);
+    let info = {};
+    const foundCard = data
+      .map((item) => item.cards)
+      .map((el) =>
+        el.find((card) => {
+          return card.id === clickedId;
+        })
+      );
+    for (let i = 0; i < foundCard.length; i++) {
+      if (foundCard[i] !== undefined) {
+        info = foundCard[i];
+      }
+    }
+    return <Edit info={info} />;
+  };
 
   const listHtmlCode = data.map((item, index) => <List key={index} defValue={item.title} cards={item.cards} />);
   return (
@@ -23,8 +43,9 @@ function App() {
           <List_New />
         </main>
       </div>
-      <Menu />
-      <Edit />
+      <Switch>
+        <Route path='/task/:id' render={handleEdit} />
+      </Switch>
     </>
   );
 }
